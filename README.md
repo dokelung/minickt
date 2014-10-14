@@ -338,7 +338,7 @@ Use `!` or cmd `shell` to run a shell command.
 
 ---
 
-### minickt Script
+### minickt script
 
 minickt allows user to write scripts and execute them.
 
