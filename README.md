@@ -278,6 +278,21 @@ You can specify a gate to get its `cone` circuit.
 
 It generates a new circuit with default name "coneckt"(it can be specified).
 
+But sometimes we want an independent cone circuit, we can do by:
+
+```
+[ miniCkt ] >> cone po_0
+[ miniCkt ] >> write ckt1.v by primitive
+[ miniCkt ] >> rm
+[ miniCkt ] >> read ckt1.v by primitive
+```
+
+or use a combinational command `gen_cone_ckt` which is eqaul to the commands above.
+
+```
+[ miniCkt ] >> gen_cone_ckt po_0
+```
+
 ---
 
 ### Verification
@@ -286,14 +301,16 @@ minickt also supports some functions of verification.
 
 #### Circuit SAT
 
-###
+---
 
-
-
+### minickt Script
 
 ---
 
-### Circuit Satisfiability
+### Shell commands
+
+---
+
 
 
 
