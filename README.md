@@ -120,8 +120,7 @@ try `?get` to know the properies that can be acquired by `get`.
 
 #### Show graph
 
-`show_ckt` or `show -c`  will show a circuit graph by taking each logic gate as a node.
-
+`show_ckt` or `show -c`  will show a circuit graph by taking each logic gate as a node.<br />
 `show_ratio` or `show -r` will show a pie chart of gates ratio.
 
 ---
@@ -130,9 +129,9 @@ try `?get` to know the properies that can be acquired by `get`.
 
 This part will introduct the method to set the gate values and doing simulation.
 
-#### List gates and their infomations
+#### List gates and their infomation
 
-`sg` can list a gate or a gate set in current circuit.
+`sg` can list a gate or a gate set in current circuit.<br />
 For example, if you want to see all of the gates in ciruict:
 
 ```
@@ -156,6 +155,16 @@ Even you can mix them:
 ```
 [ miniCkt ] >> sg pi, po_0
 ```
+
+We could add some additional options to see more information.
+
+```
+[ miniCkt ] >> sg pi -ivo
+```
+
+`-i` will list the fanins of each gate.<br />
+`-o` will list the fanouts of each gate.<br />
+`-v` will list the values of each gates.
 
 
 #### Set gate value
