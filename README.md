@@ -3,6 +3,8 @@ minickt
 
 Analyzer and simulator of logic circuit
 
+---
+
 ### Environments
 
 You have to install `Python2` (python2.7.6 is the version in development).<br />
@@ -10,11 +12,15 @@ And you do not need to install minickt, it's just a script.
 
 If you want to use the complete functions of minickt, you should install python packages: `matplotlib` and `networkx`.
 
+---
+
 ### Run minickt
 
 ```sh
 $ python minickt.py 
 ```
+
+---
 
 ### List commands and get help
 
@@ -44,6 +50,8 @@ If you want to know the details of a specified cmd, use `help<cmd>` or `?<cmd>`:
 [ miniCkt ] >> ?shell
 [ miniCkt ] >> help shell
 ```
+
+---
 
 ### Circuit I/O
 
@@ -94,6 +102,7 @@ The format of `write` is similar to `read`.<br />
 Commmand `ls -w` or `ls_writer` can list all avalible writers.<br />
 You can write your own writer, too.
 
+---
 
 ### Circuit Analysis
 
@@ -114,6 +123,11 @@ try `?get` to know the properies that can be acquired by `get`.
 `show_ckt` or `show -c`  will show a circuit graph by taking each logic gate as a node.
 
 `show_ratio` or `show -r` will show a pie chart of gates ratio.
+
+---
+
+### Circuit Simulation
+
 
 
 
