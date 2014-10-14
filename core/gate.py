@@ -155,6 +155,7 @@ class Gate(object):
             return False
 
     def reason(self):
+        print 'hello'
         try:
             if self.value==(self.ctrl_value^self.phase):
                 for fi in self.fanins:

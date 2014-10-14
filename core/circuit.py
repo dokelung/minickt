@@ -618,8 +618,8 @@ class Circuit:
     def reason(self):
         todo_gates = []
         for gate in self.getPIGates()+self.gates[self.po_end_index:]:
-            if any([fi.getValue()==None for fi in gate.getFanIns()]) or gate.getValue()==None:
-                todo_gates.append(gate)
+            #if any([fi.getValue()==None for fi in gate.getFanIns()]) or gate.getValue()==None:
+            todo_gates.append(gate)
         check_num = len(todo_gates)
         while True:
             todo_gate_index = []

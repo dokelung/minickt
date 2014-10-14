@@ -627,6 +627,7 @@ class OriShell(cmd.Cmd,object):
                 value = True
             elif value=='0' or value=='f':
                 value = False
+            args = [arg.strip(',') for arg in args ]
             gates = self.collectGates(ckt,args)
             for gate in gates:
                 gate.setValue(value)
