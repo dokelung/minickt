@@ -128,6 +128,45 @@ try `?get` to know the properies that can be acquired by `get`.
 
 ### Circuit Simulation
 
+This part will introduct the method to set the gate values and doing simulation.
+
+#### List gates and their infomations
+
+`sg` can list a gate or a gate set in current circuit.
+For example, if you want to see all of the gates in ciruict:
+
+```
+[ miniCkt ] >> sg all
+```
+
+Or you want to see the PI gate:
+
+```
+[ miniCkt ] >> sg pi
+```
+
+Or you just want to see the PO gate named po_0:
+
+```
+[ miniCkt] >> sg po_0
+```
+
+Even you can mix them:
+
+```
+[ miniCkt ] >> sg pi, po_0
+```
+
+
+#### Set gate value
+
+You can assign value to a "gate" or a "gate set".
+For example, we want to set 
+
+```
+[ miniCkt ] >> set
+```
+
 
 
 
