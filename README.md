@@ -207,13 +207,87 @@ We commonly use `sg -v` to check the evalation results.
 minickt also supports circuit reasoning. <br />
 There are two ways to do that: cmd `reason` and `sat_reason`.
 
-After doing assignments to some gates , we can use `reason` to diduce other gates' values:
+After doing assignments to some gates , we can use `reason` to deduce other gates' values:
 
 ```
 [ miniCkt ] >> reset
 [ miniCkt ] >> set po 1
 [ miniCkt ] >> reason
 ```
+
+If some conflict occur, reasoning will fail.<br />
+Note that this command just deduces the values which can be implied directly, it does not do any guess.
+
+If you want to do a complete reasoning, use `sat_reason`:
+
+```
+[ miniCkt ] >> sat_reason po_0 1
+```
+
+User should be ware of the differences between `read` and `sat_reason`.<br />
+`sat_reason` does not depend on the current assignments, it depends on gates and their values specified with command.
+
+Also, this command use an external SAT solver which is located in directory `bin` with name `lingeling`.<br />
+You should check the name and the version fo SAT solver are avalible, otherwise it will result in fail.
+
+---
+
+### Circuit Manager
+
+You could add several circuits to minickt because it can hold multiple circuits.(I think it's really cool!)
+
+#### Circuit switching
+
+Assume we have two circuits in circuit manager(the current arrow points the "current circuit"):
+
+```
+[ miniCkt ] >> ls -c
+there are 2 circuits now
+[0] ckt1 <--- current
+[1] ckt2
+```
+
+Current circuit is the circuit which can be controled directly by commands.
+
+User can use `cc` to switch to the circuit we want to control and do something.
+
+```
+[ miniCkt ] >> cc 1
+[ miniCkt ] >> ls -c
+there are 2 circuits now
+[0] ckt1
+[1] ckt2 <--- current
+```
+
+#### Remove circuit
+
+`rm` can remove the current circuit(if no option) or remove the i-th circuit.
+
+```
+[ miniCkt ] >> rm
+[ miniCkt ] >> rm 0
+```
+
+#### Get cone circuit
+
+You can specify a gate to get its `cone` circuit.
+
+```
+[ miniCkt ] >> cone po_0
+```
+
+It generates a new circuit with default name "coneckt"(it can be specified).
+
+---
+
+### Verification
+
+minickt also supports some functions of verification.
+
+#### Circuit SAT
+
+###
+
 
 
 
