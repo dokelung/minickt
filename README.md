@@ -140,11 +140,16 @@ This part will introduct the method to set the gate values and doing simulation.
 #### List gates and their infomation
 
 `sg` can list a gate or a gate set in current circuit.<br />
-For example, if you want to see all of the gates in ciruict:
+For example, if you want to see all of the gates in circuit:
 
 ```
 [ miniCkt ] >> sg all
+...
+AND:n28 OR:n1017 OR:n230 XOR:n1101 
 ```
+
+Note that the gate format is "GATE_TYPE:GATE_NAME".<br />
+If the gate is PO gate, the GATE_TYPE will be composed with PO and its type, like "PO-XOR".
 
 Or you want to see the PI gate:
 
@@ -278,7 +283,7 @@ You can specify a gate to get its `cone` circuit.
 
 It generates a new circuit with default name "coneckt"(it can be specified).
 
-But sometimes we want an independent cone circuit, we can do by:
+But sometimes we want an independent cone circuit(the specified gate should be taken as a PO gate), we can do by:
 
 ```
 [ miniCkt ] >> cone po_0
@@ -295,21 +300,56 @@ or use a combinational command `gen_cone_ckt` which is eqaul to the commands abo
 
 ---
 
-### Verification
-
-minickt also supports some functions of verification.
-
 #### Circuit SAT
 
----
+To know the circuit satisfiability, minickt supports circuit encoding and circuit sat solving.
 
-### minickt Script
+`encode` can be use to encode a circuit to a CNF file:
+
+```
+[ miniCkt ] >> encode by PTST to ckt1.cnf
+```
+
+`PTST` means "pure tseitin transformation" that is we do not assign value to PO.<br />
+If you want to have an traditional circuit sat instance, use method `TST`:
+
+```
+[ miniCkt ] >> encode by TST to ckt1.cnf
+```
+
+If you want to solve circuit SAT in minisat, you could use cmd `sat`:
+
+```
+[ miniCkt ] >> sat by lingeling with PTST
+```
+
+You should specify the sat solver(and its options) and encoding method.
 
 ---
 
 ### Shell commands
 
+Use `!` or cmd `shell` to run a shell command.
+
+```
+[ miniCkt ] >> !ls
+[ miniCkt ] >> shell ls
+```
+
 ---
+
+### minickt Script
+
+minickt allows user to write scripts and execute them.
+
+Just put wanted commands in a scirpt file then use cmd `loadsc` to load script:
+
+```
+[ miniCkt ] >> loadsc ./script/sc1
+```
+
+---
+
 
 
 
