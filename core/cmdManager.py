@@ -673,6 +673,7 @@ class OriShell(cmd.Cmd,object):
             if args[-1][0]=='-':
                 option = args.pop()
 
+            args = [arg.strip(',') for arg in args]
             gates = self.collectGates(ckt,args)
 
             if 'i' in option or 'o' in option:
@@ -762,6 +763,7 @@ class OriShell(cmd.Cmd,object):
         return args
 
     def collectGates(self,ckt,args):
+
         gates = []
 
         if 'pi' in args:
