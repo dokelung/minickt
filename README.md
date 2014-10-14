@@ -43,13 +43,13 @@ If you want to know the details of a specified cmd, use `help<cmd>` or `?<cmd>`:
 [ miniCkt ] >> help shell
 ```
 
-### A quick start
+### Circuit Analyzing
 
 Here I will give you a quick start of doing circuit analyzing.
 
 #### Read a logic circuit
 
-Command "read" can read a logic circuit with specified parser.
+Command `read` can read a logic circuit with specified parser.
 
 ```
 [ miniCkt ] >> read mycircuit.v by primitive
@@ -57,10 +57,13 @@ read mycircuit.v ...
 success: circuit "top(mycircuit.v) is in circuit manager now
 ```
 
-Commmand "ls -p" or "ls_parser" can list all avalible parsers.
+Commmand `ls -p` or `ls_parser` can list all avalible parsers.
 You can write parser by yourself to fit the circuit format.
 
-Now we can use cmd "ls -c" or "ls_ckt" to list all circuits in circuit manager of minickt.
+The default name of a circuit is `top(CIRCUIT_FILE_NAME)`.
+You can use `c`
+
+Now we can use cmd `ls -c` or `ls_ckt` to list all circuits in circuit manager of minickt.
 
 ```
 [ miniCkt ] >> ls -c
@@ -69,5 +72,17 @@ there are 1 circuits now
 ```
 
 It means that minickt can hold several circuits not just single one!
+
+#### Get circuit infomation
+
+Command `get` can get the specified property of circuit.
+
+```
+[ miniCkt ] >> get gate_num
+```
+
+
+
+
 
 
