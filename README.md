@@ -190,7 +190,17 @@ If you want to reset all gates(it means you want to let all gates value be unkno
 [ miniCkt ] >> reset
 ```
 
-#### eval
+#### Simulation
+
+After setting the gate values of circuit, we can do simulation with cmd `eval` which means evaluate:
+
+```
+[ miniCkt ] >> eval
+```
+
+We commonly use `sg -v` to check the evalation results.
+
+---
 
 
 
