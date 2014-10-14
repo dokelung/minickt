@@ -20,6 +20,14 @@ If you want to use the complete functions of minickt, you should install python 
 $ python minickt.py 
 ```
 
+and you can run any avalible command by enter it after the prompt `[ miniCkt ] >> `:
+
+```
+[ miniCkt ] >> exit
+```
+
+Command `exit` will terminate minickt.
+
 ---
 
 ### List commands and get help
@@ -169,12 +177,20 @@ We could add some additional options to see more information.
 
 #### Set gate value
 
-You can assign value to a "gate" or a "gate set".
-For example, we want to set 
+You can assign value to a "gate" or a "gate set".<br />
+For example, we want to assign one(True) to all PI gates:
 
 ```
-[ miniCkt ] >> set
+[ miniCkt ] >> set pi 1
 ```
+
+If you want to reset all gates(it means you want to let all gates value be unknown):
+
+```
+[ miniCkt ] >> reset
+```
+
+#### eval
 
 
 
