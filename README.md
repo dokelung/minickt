@@ -202,6 +202,24 @@ We commonly use `sg -v` to check the evalation results.
 
 ---
 
+### Circuit Reasoning
+
+minickt also supports circuit reasoning. <br />
+There are two ways to do that: cmd `reason` and `sat_reason`.
+
+After doing assignments to some gates , we can use `reason` to diduce other gates' values:
+
+```
+[ miniCkt ] >> reset
+[ miniCkt ] >> set po 1
+[ miniCkt ] >> reason
+```
+
+
+
+---
+
+### Circuit Satisfiability
 
 
 
