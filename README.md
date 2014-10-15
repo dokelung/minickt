@@ -4,6 +4,8 @@ minickt
 Analyzer and simulator of logic circuit
 
 * [Environments](#environments)
+ * [Python](#python)
+ * [SAT solver](#sat-solver)
 * [Run minickt](#run-minickt)
 * [List commmands and get help](#list-commands-and-get-help)
 * [Circuit I/O](#circuit-io)
