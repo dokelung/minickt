@@ -3,8 +3,6 @@ minickt
 
 Analyzer and simulator of logic circuit
 
----
-
 * [Environments](#environments)
 * [Run minickt](#run-minickt)
 * [List commmands and get help](#list-commands-and-get-help)
@@ -31,7 +29,7 @@ Analyzer and simulator of logic circuit
 * [Shell commands](#shell-commands)
 * [minickt script](#minickt-script)
 
----
+===
 
 ### Environments
 
