@@ -47,7 +47,12 @@ If you want to use the complete functions of minickt, you should install python 
 Some commands of minickt is based on external SAT solver, and lingeling is default.<br />
 You can get it from [lingeling](http://fmv.jku.at/lingeling/) and compiled to fit your os version.
 
-Other SAT solver is also avalible, just put the excution file to directory `bin`. 
+Other SAT solvers are also avalible, just put the excution file to directory `bin`. 
+
+Here are some suggested solvers:
+
+* [ MiniSAT ](http://minisat.se/)
+* [ glucose ](http://www.labri.fr/perso/lsimon/glucose/)
 
 ---
 
