@@ -42,7 +42,9 @@ You have to install `Python2` (python2.7.6 is the version in development).
 
 You do not need to install minickt, it's just a script.
 
-If you want to use the complete functions of minickt, you should install python packages: `matplotlib` and `networkx`.
+If you want to use the complete functions of minickt, you should install python packages: 
+* [matplotlib](http://matplotlib.org/)
+* [networkx](https://networkx.github.io/)
 
 #### SAT solver
 
