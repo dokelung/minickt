@@ -73,21 +73,21 @@ class OriShell(cmd.Cmd,object):
             2.  also, "cktWriter" is a python package
             3.  command "ls_writer" can list all avalible writers
         """
-        try:
-            args = self.parseArg(arg)
-            ckt = self.cktmgr.getCurrentCkt()
+        #try:
+        args = self.parseArg(arg)
+        ckt = self.cktmgr.getCurrentCkt()
 
-            file_name = args[0]
-            assert args[1]=='by'
-            writer = args[2]
+        file_name = args[0]
+        assert args[1]=='by'
+        writer = args[2]
 
-            exec 'from cktWriter import {0}'.format(writer)
-            exec '{0}.writeOutCkt(ckt,"{1}")'.format(writer,file_name)
+        exec 'from cktWriter import {0}'.format(writer)
+        exec '{0}.writeOutCkt(ckt,"{1}")'.format(writer,file_name)
 
-            print 'success:', 'circuit "{0}" has been writen out'.format(ckt)
+        print 'success:', 'circuit "{0}" has been writen out'.format(ckt)
 
-        except:
-            print 'error: cannot write out circuit'
+        #except:
+        #    print 'error: cannot write out circuit'
 
     def do_cmd(self,arg):
         """

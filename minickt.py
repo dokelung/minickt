@@ -2,7 +2,7 @@
 
 import sys
 import os
-import core.cmdManager as cmdManager
+import minickt.cmdManager as cmdManager
 
 if __name__=='__main__':
     shell = cmdManager.Shell()

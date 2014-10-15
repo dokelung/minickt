@@ -1,4 +1,4 @@
-from core.gate import *
+from minickt.gate import *
 
 def writeOutCkt(ckt,file_name):
     inputs = []
