@@ -33,10 +33,19 @@ Analyzer and simulator of logic circuit
 
 ### Environments
 
+#### Python
+
 You have to install `Python2` (python2.7.6 is the version in development).<br />
 And you do not need to install minickt, it's just a script.
 
 If you want to use the complete functions of minickt, you should install python packages: `matplotlib` and `networkx`.
+
+#### SAT solver
+
+Some commands of minickt is based on external SAT solver, and lingeling is default.<br />
+You can get it from [lingeling](http://fmv.jku.at/lingeling/) and compiled to fit your os version.
+
+Other SAT solver is also avalible, just put the excution file to directory `bin`. 
 
 ---
 
