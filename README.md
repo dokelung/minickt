@@ -37,8 +37,10 @@ Analyzer and simulator of logic circuit
 
 #### Python
 
-You have to install `Python2` (python2.7.6 is the version in development).<br />
-And you do not need to install minickt, it's just a script.
+You have to install `Python2` (python2.7.6 is the version in development).
+* [Python](https://www.python.org/)
+
+You do not need to install minickt, it's just a script.
 
 If you want to use the complete functions of minickt, you should install python packages: `matplotlib` and `networkx`.
 
