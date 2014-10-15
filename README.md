@@ -4,6 +4,8 @@ minickt
 Analyzer and simulator of logic circuit
 
 * [Environments](#environments)
+ * [Python](#python)
+ * [SAT solver](#sat-solver)
 * [Run minickt](#run-minickt)
 * [List commmands and get help](#list-commands-and-get-help)
 * [Circuit I/O](#circuit-io)
@@ -33,10 +35,28 @@ Analyzer and simulator of logic circuit
 
 ### Environments
 
-You have to install `Python2` (python2.7.6 is the version in development).<br />
-And you do not need to install minickt, it's just a script.
+#### Python
 
-If you want to use the complete functions of minickt, you should install python packages: `matplotlib` and `networkx`.
+You have to install `Python2` (python2.7.6 is the version in development).
+* [Python](https://www.python.org/)
+
+You do not need to install minickt, it's just a script.
+
+If you want to use the complete functions of minickt, you should install python packages: 
+* [matplotlib](http://matplotlib.org/)
+* [networkx](https://networkx.github.io/)
+
+#### SAT solver
+
+Some commands of minickt is based on external SAT solver, and lingeling is default.<br />
+You can get it from [lingeling](http://fmv.jku.at/lingeling/) and compiled to fit your os version.
+
+Other SAT solvers are also avalible, just put the excution file to directory `bin`. 
+
+Here are some suggested solvers:
+
+* [ MiniSAT ](http://minisat.se/)
+* [ glucose ](http://www.labri.fr/perso/lsimon/glucose/)
 
 ---
 
