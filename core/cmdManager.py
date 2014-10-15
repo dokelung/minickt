@@ -721,7 +721,7 @@ class OriShell(cmd.Cmd,object):
     def do_cone(self,arg):
         """
         generate a sub-circuit by getting cone of specified gate
-        SYNOPSIS: cone_ckt <gate name> [cone ckt name]
+        SYNOPSIS: cone <gate name> [cone ckt name]
         DESCRIPTION:
             this cmd will generate a cone circuit by given name of gate
             also, this circuit will be added to circuit manager as a new circuit
