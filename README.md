@@ -5,7 +5,31 @@ Analyzer and simulator of logic circuit
 
 ---
 
-[Environments](#environments)
+* [Environments](#environments)
+* [Run minickt](#run-minickt)
+* [List commmands and get help](#list-commands-and-get-help)
+* [Circuit I/O](#circuit-io)
+  * [Read a logic circuit](#read-a-logic-circuit)
+  * [Rename](#rename)
+  * [Write out a circuit](#write-out-a-circuit)
+* [Circuit Analysis](circuit-analysis)
+  * [Get circuit information](get-circuit-information)
+  * [Show graph](show-graph)
+* [Circuit Simulation](#circuit-simulation)
+  * [List gates and their information](#list-gates-and-their-information)
+  * [Set gate value](#set-gate-value)
+  * [Simulation](#simulation)
+* [Circuit Reasoning](#circuit-reasoning)
+* [Circuit Manager] (#circuit-manager)
+  * [Circuit switching](#circuit-switching)
+  * [Remove circuit](#remove-circuit)
+  * [Get cone circuit](#get-cone-circuit)
+* [Structural equivalence checking](#structural-equivalence-checking)
+  * [SEC for two circuits](#sec-for-two-circuits)
+  * [SEC for cones of current circuit](#sec-for-cones-of-current-circuit)
+* [Circuit SAT](#circuit-sat)
+* [Shell commands](#shell-commands)
+* [minickt script](#minickt-script)
 
 ---
 
@@ -120,7 +144,7 @@ You can write your own writer, too.
 
 Here are some methods of doing analyzing
 
-#### Get circuit infomation
+#### Get circuit information
 
 Command `get` can get the specified property of circuit.
 
@@ -141,7 +165,7 @@ try `?get` to know the properies that can be acquired by `get`.
 
 This part will introduct the method to set the gate values and doing simulation.
 
-#### List gates and their infomation
+#### List gates and their information
 
 `sg` can list a gate or a gate set in current circuit.<br />
 For example, if you want to see all of the gates in circuit:
