@@ -3,7 +3,33 @@ minickt
 
 Analyzer and simulator of logic circuit
 
----
+* [Environments](#environments)
+* [Run minickt](#run-minickt)
+* [List commmands and get help](#list-commands-and-get-help)
+* [Circuit I/O](#circuit-io)
+  * [Read a logic circuit](#read-a-logic-circuit)
+  * [Rename](#rename)
+  * [Write out a circuit](#write-out-a-circuit)
+* [Circuit Analysis](#circuit-analysis)
+  * [Get circuit information](#get-circuit-information)
+  * [Show graph](#show-graph)
+* [Circuit Simulation](#circuit-simulation)
+  * [List gates and their information](#list-gates-and-their-information)
+  * [Set gate value](#set-gate-value)
+  * [Simulation](#simulation)
+* [Circuit Reasoning](#circuit-reasoning)
+* [Circuit Manager] (#circuit-manager)
+  * [Circuit switching](#circuit-switching)
+  * [Remove circuit](#remove-circuit)
+  * [Get cone circuit](#get-cone-circuit)
+* [Structural equivalence checking](#structural-equivalence-checking)
+  * [SEC for two circuits](#sec-for-two-circuits)
+  * [SEC for cones of current circuit](#sec-for-cones-of-current-circuit)
+* [Circuit SAT](#circuit-sat)
+* [Shell commands](#shell-commands)
+* [minickt script](#minickt-script)
+
+===
 
 ### Environments
 
@@ -116,7 +142,7 @@ You can write your own writer, too.
 
 Here are some methods of doing analyzing
 
-#### Get circuit infomation
+#### Get circuit information
 
 Command `get` can get the specified property of circuit.
 
@@ -137,14 +163,19 @@ try `?get` to know the properies that can be acquired by `get`.
 
 This part will introduct the method to set the gate values and doing simulation.
 
-#### List gates and their infomation
+#### List gates and their information
 
 `sg` can list a gate or a gate set in current circuit.<br />
-For example, if you want to see all of the gates in ciruict:
+For example, if you want to see all of the gates in circuit:
 
 ```
 [ miniCkt ] >> sg all
+...
+AND:n28 OR:n1017 OR:n230 XOR:n1101 
 ```
+
+Note that the gate format is "GATE_TYPE:GATE_NAME".<br />
+If the gate is PO gate, the GATE_TYPE will be composed with PO and its type, like "PO-XOR".
 
 Or you want to see the PI gate:
 
@@ -207,7 +238,7 @@ We commonly use `sg -v` to check the evalation results.
 minickt also supports circuit reasoning. <br />
 There are two ways to do that: cmd `reason` and `sat_reason`.
 
-After doing assignments to some gates , we can use `reason` to diduce other gates' values:
+After doing assignments to some gates , we can use `reason` to deduce other gates' values:
 
 ```
 [ miniCkt ] >> reset
@@ -215,11 +246,166 @@ After doing assignments to some gates , we can use `reason` to diduce other gate
 [ miniCkt ] >> reason
 ```
 
+If some conflict occur, reasoning will fail.<br />
+Note that this command just deduces the values which can be implied directly, it does not do any guess.
 
+If you want to do a complete reasoning, use `sat_reason`:
+
+```
+[ miniCkt ] >> sat_reason po_0 1
+```
+
+User should be ware of the differences between `read` and `sat_reason`.<br />
+`sat_reason` does not depend on the current assignments, it depends on gates and their values specified with command.
+
+Also, this command use an external SAT solver which is located in directory `bin` with name `lingeling`.<br />
+You should check the name and the version fo SAT solver are avalible, otherwise it will result in fail.
 
 ---
 
-### Circuit Satisfiability
+### Circuit Manager
+
+You could add several circuits to minickt because it can hold multiple circuits.(I think it's really cool!)
+
+#### Circuit switching
+
+Assume we have two circuits in circuit manager(the current arrow points the "current circuit"):
+
+```
+[ miniCkt ] >> ls -c
+there are 2 circuits now
+[0] ckt1 <--- current
+[1] ckt2
+```
+
+Current circuit is the circuit which can be controled directly by commands.
+
+User can use `cc` to switch to the circuit we want to control and do something.
+
+```
+[ miniCkt ] >> cc 1
+[ miniCkt ] >> ls -c
+there are 2 circuits now
+[0] ckt1
+[1] ckt2 <--- current
+```
+
+#### Remove circuit
+
+`rm` can remove the current circuit(if no option) or remove the i-th circuit.
+
+```
+[ miniCkt ] >> rm
+[ miniCkt ] >> rm 0
+```
+
+#### Get cone circuit
+
+You can specify a gate to get its `cone` circuit.
+
+```
+[ miniCkt ] >> cone po_0
+```
+
+It generates a new circuit with default name "coneckt"(it can be specified).
+
+But sometimes we want an independent cone circuit(the specified gate should be taken as a PO gate), we can do by:
+
+```
+[ miniCkt ] >> cone po_0
+[ miniCkt ] >> write ckt1.v by primitive
+[ miniCkt ] >> rm
+[ miniCkt ] >> read ckt1.v by primitive
+```
+
+or use a combinational command `gen_cone_ckt` which is equal to the commands above.
+
+```
+[ miniCkt ] >> gen_cone_ckt po_0
+```
+
+---
+
+### Structural equivalence checking
+
+There are two ways to check the equivalence of two single-outpu circuits.<br />
+Command `sec` helps us doing these.
+
+#### SEC for two circuits
+
+If you want to do SEC for two circuits in circuit manager of minickt, you have to use `CKT_ID` to specify circuits:
+
+```
+[ miniCkt ] ls -c
+[0] ckt1 <--- current
+[1] ckt2
+[ miniCkt ] sg po
+[ miniCkt ] >> sec 0.out 1.out
+```
+
+It will compare ckt1's cone(its root is gate "out") and ckt2's cone(its root is gate "out").
+
+#### SEC for cones of current circuit
+
+If you want to do SEC for two cones of urrent circuit, just give the names of cone roots:
+
+```
+[ minickt ] >> sec gate1 gate2
+```
+
+---
+
+### Circuit SAT
+
+To know the circuit satisfiability, minickt supports circuit encoding and circuit sat solving.
+
+`encode` can be use to encode a circuit to a CNF file:
+
+```
+[ miniCkt ] >> encode by PTST to ckt1.cnf
+```
+
+`PTST` means "pure tseitin transformation" that is we do not assign value to PO.<br />
+If you want to have an traditional circuit sat instance, use method `TST`:
+
+```
+[ miniCkt ] >> encode by TST to ckt1.cnf
+```
+
+If you want to solve circuit SAT in minisat, you could use cmd `sat`:
+
+```
+[ miniCkt ] >> sat by lingeling with PTST
+```
+
+You should specify the sat solver(and its options) and encoding method.
+
+---
+
+### Shell commands
+
+Use `!` or cmd `shell` to run a shell command.
+
+```
+[ miniCkt ] >> !ls
+[ miniCkt ] >> shell ls
+```
+
+---
+
+### minickt script
+
+minickt allows user to write scripts and execute them.
+
+Just put wanted commands in a scirpt file then use cmd `loadsc` to load script:
+
+```
+[ miniCkt ] >> loadsc ./script/sc1
+```
+
+---
+
+
 
 
 
