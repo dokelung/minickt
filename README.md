@@ -73,7 +73,7 @@ $ pip install minickt
 ```
 Here is the pypi page of minickt:
 
-* [Pypi](https://pypi.python.org/pypi/minickt/0.6.5)
+* [Pypi page of minickt](https://pypi.python.org/pypi/minickt/0.6.5)
 
 ---
 
