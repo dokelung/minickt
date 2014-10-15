@@ -1,4 +1,4 @@
-minickt
+minickt 0.6.5
 =======
 
 Analyzer and simulator of logic circuit
