@@ -6,6 +6,7 @@ Analyzer and simulator of logic circuit
 * [Environments](#environments)
  * [Python](#python)
  * [SAT solver](#sat-solver)
+* [How to get minickt](#how-to-get-minickt)
 * [Run minickt](#run-minickt)
 * [List commmands and get help](#list-commands-and-get-help)
 * [Circuit I/O](#circuit-io)
@@ -57,6 +58,22 @@ Here are some suggested solvers:
 
 * [ MiniSAT ](http://minisat.se/)
 * [ glucose ](http://www.labri.fr/perso/lsimon/glucose/)
+
+---
+
+### How to get minickt
+
+Just download from github tarball:
+* [Github tarball](https://github.com/dokelung/minickt/tarball/0.6.5)
+
+User also can install the packages(`minickt`, `cktParser`, `cktWriter`) of minickt from pip:
+
+```sh
+$ pip install minickt
+```
+Here is the pypi page of minickt:
+
+* [Pypi](https://pypi.python.org/pypi/minickt/0.6.5)
 
 ---
 
