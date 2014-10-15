@@ -292,7 +292,7 @@ But sometimes we want an independent cone circuit(the specified gate should be t
 [ miniCkt ] >> read ckt1.v by primitive
 ```
 
-or use a combinational command `gen_cone_ckt` which is eqaul to the commands above.
+or use a combinational command `gen_cone_ckt` which is equal to the commands above.
 
 ```
 [ miniCkt ] >> gen_cone_ckt po_0
@@ -300,7 +300,36 @@ or use a combinational command `gen_cone_ckt` which is eqaul to the commands abo
 
 ---
 
-#### Circuit SAT
+### Structural equivalence checking
+
+There are two ways to check the equivalence of two single-outpu circuits.<br />
+Command `sec` helps us doing these.
+
+#### SEC for two circuits
+
+If you want to do SEC for two circuits in circuit manager of minickt, you have to use `CKT_ID` to specify circuits:
+
+```
+[ miniCkt ] ls -c
+[0] ckt1 <--- current
+[1] ckt2
+[ miniCkt ] sg po
+[ miniCkt ] >> sec 0.out 1.out
+```
+
+It will compare ckt1's cone(its root is gate "out") and ckt2's cone(its root is gate "out").
+
+#### SEC for cones of current circuit
+
+If you want to do SEC for two cones of urrent circuit, just give the names of cone roots:
+
+```
+[ minickt ] >> sec gate1 gate2
+```
+
+---
+
+### Circuit SAT
 
 To know the circuit satisfiability, minickt supports circuit encoding and circuit sat solving.
 
