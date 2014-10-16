@@ -11,9 +11,9 @@ class OriShell(cmd.Cmd,object):
     intro = \
 """
 ================================
-      miniCkt beta 0.6.5
+      miniCkt beta 0.7.1
 
-    * update: 2014/05/26
+    * update: 2014/10/16
     * author: dokelung
 
     # use "?" or "cmd"         

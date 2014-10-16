@@ -33,23 +33,6 @@ class SOP(list):
 				result += self * product
 		return result
 
-	def __invert__(self):
-		for p in self:
-			
-	'''
-	def __add__(self,other):
-		return self + other
-	
-	def __invert__(self,other):
-		result = []
-		for product in self:
-			if len(product)==1:
-				result *= [(-product[0])]
-			else:
-				return ~product
-		return result
-	'''
-
 e1 = SOP('a+b')
 e2 = SOP('c+d')
 #print a
