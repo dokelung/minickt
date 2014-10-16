@@ -64,7 +64,7 @@ Here are some suggested solvers:
 ### How to get minickt
 
 Just download from github tarball:
-* [download minickt](https://github.com/dokelung/minickt/tarball/v0.6.5)
+* [download minickt](https://github.com/dokelung/minickt/tarball/v0.6.7)
 
 User also can install the packages(`minickt`, `cktParser`, `cktWriter`) of minickt from pip:
 
