@@ -86,8 +86,16 @@ Here is the pypi page of minickt:
 
 ### Run minickt
 
+If you do not install the packages and script, just `cd` to the top directory:
+
 ```sh
-$ python minickt.py 
+$ ./minic
+```
+
+If you have already installed it, just excute it anywhere:
+
+```sh
+$ minic
 ```
 
 and you can run any avalible command by enter it after the prompt `[ miniCkt ] >> `:
