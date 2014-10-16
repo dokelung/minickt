@@ -1,7 +1,7 @@
 minickt
 =======
 
-Analyzer and simulator of logic circuit (Version-0.6.5)
+Analyzer and simulator of logic circuit (Version-0.7.1)
 
 * [Environments](#environments)
  * [Python](#python)
@@ -64,16 +64,23 @@ Here are some suggested solvers:
 ### How to get minickt
 
 Just download from github tarball:
-* [download minickt](https://github.com/dokelung/minickt/tarball/v0.6.7)
+* [download minickt](https://github.com/dokelung/minickt/tarball/v0.7.1)
 
-User also can install the packages(`minickt`, `cktParser`, `cktWriter`) of minickt from pip:
+User also can install minickt from pip:
 
 ```sh
 $ pip install minickt
 ```
+
+If there is new version, use upgrade:
+
+```sh
+$ pip install minickt --upgrade
+```
+
 Here is the pypi page of minickt:
 
-* [Pypi page of minickt](https://pypi.python.org/pypi/minickt/0.6.5)
+* [Pypi page of minickt](https://pypi.python.org/pypi/minickt/)
 
 ---
 
