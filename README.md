@@ -498,6 +498,7 @@ First, we read `sample2.v` by using primitive parser.
 `sg all -v` let us know all names of gates with their values.
 Then we set PI a,b,c and d with value 1,1,1,0 respectively.
 `eval` does the simulaiton and we sg again for chekcing the value of PO "out".
+
 ---
 
 
