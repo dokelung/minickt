@@ -31,7 +31,6 @@ Analyzer and simulator of logic circuit (Version-0.7.1)
 * [Circuit SAT](#circuit-sat)
 * [Shell commands](#shell-commands)
 * [minickt script](#minickt-script)
-* [Script example](#script-example)
  * [simple_io.sc with sample.v](#simple_iosc-with-samplev)
  * [simulation.sc with sample2.v](#simulationsc-with-sample2v)
 
@@ -460,10 +459,7 @@ or you can run the script in your os shell with `-f` option:
 
 ```sh
 $ ./minic -f ./script/simulation.sc
-
 ```
-
-### Script Example
 
 There are several sample circuits and scripts in the directory `bench` and `script` respectively.
 Now I will show you some of them.
