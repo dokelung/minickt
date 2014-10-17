@@ -31,6 +31,9 @@ Analyzer and simulator of logic circuit (Version-0.7.1)
 * [Circuit SAT](#circuit-sat)
 * [Shell commands](#shell-commands)
 * [minickt script](#minickt-script)
+* [Script example](#script-example)
+ * [simple_io.sc with sample.v](#simple_io.sc-with-sample.v)
+ * [simulation.sc with sample2.v](#simulation.sc-with-sample2.v)
 
 ===
 
@@ -450,9 +453,51 @@ minickt allows user to write scripts and execute them.
 Just put wanted commands in a scirpt file then use cmd `loadsc` to load script:
 
 ```
-[ miniCkt ] >> loadsc ./script/sc1
+[ miniCkt ] >> loadsc ./script/simulation.sc
 ```
 
+or you can run the script in your os shell with `-f` option:
+
+```sh
+$ ./minic -f ./script/simulation.sc
+
+```
+
+### Script Example
+
+There are several sample circuits and scripts in the directory `bench` and `script` respectively.
+Now I will show you some of them.
+
+#### simple_io.sc with sample.v
+
+```
+read ./bench/sample.v by primitive
+chname sample
+write ./bench/sample_copy.v by primitive
+exit
+```
+
+This script(`simple_io.sc`) will read `sample.v` by primitive parser.
+Then change its name to "sample".
+Note that if you want to safely write out the circuit with default primitive writer, you should always use `chname` for guaranteeing there is no "()" in module name.
+In the end, write out the circuit with name "sample_copy.v" and exit minickt shell.
+
+#### simulation.sc with sample2.v
+
+```
+read ./bench/sample2.v by primitive
+sg all -v
+set a b c 1
+set d 0
+eval
+sg out -v
+exit
+```
+
+First, we read `sample2.v` by using primitive parser.
+`sg all -v` let us know all names of gates with their values.
+Then we set PI a,b,c and d with value 1,1,1,0 respectively.
+`eval` does the simulaiton and we sg again for chekcing the value of PO "out".
 ---
 
 
