@@ -32,8 +32,8 @@ Analyzer and simulator of logic circuit (Version-0.7.1)
 * [Shell commands](#shell-commands)
 * [minickt script](#minickt-script)
 * [Script example](#script-example)
- * [simple_io.sc with sample.v](#simple_io.sc-with-sample.v)
- * [simulation.sc with sample2.v](#simulation.sc-with-sample2.v)
+ * [simple_io.sc with sample.v](#simple_iosc-with-samplev)
+ * [simulation.sc with sample2.v](#simulationsc-with-sample2v)
 
 ===
 
