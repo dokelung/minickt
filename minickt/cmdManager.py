@@ -425,16 +425,13 @@ class OriShell(cmd.Cmd,object):
         load a script file and excute the commands in it
         SYNOPSIS: loadsc <script file> 
         """
-        try:
-            with open(arg,'r') as reader:
-                for line in reader:
-                    line = line.strip()
-                    print '-------------------------'
-                    print 'EXC({0})'.format(line)
-                    print '-------------------------'
-                    self.excCmd(line)
-        except:
-            print 'error: cannot load script file'
+        with open(arg,'r') as reader:
+            for line in reader:
+                line = line.strip()
+                print '-------------------------'
+                print 'EXC({0})'.format(line)
+                print '-------------------------'
+                self.excCmd(line)
 
     def do_shell(self,arg):
         """
