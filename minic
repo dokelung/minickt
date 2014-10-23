@@ -7,7 +7,7 @@ import minickt.cmdManager as cmdManager
 if __name__=='__main__':
     shell = cmdManager.Shell()
     if len(sys.argv)>1:
-        if sys.argv[1]=='-f':
+        if sys.argv[1]=='readscript':
             script_file = sys.argv[2]
             with open(script_file,'r') as reader:
                 for line in reader:
@@ -17,5 +17,12 @@ if __name__=='__main__':
                     print '-------------------------'
                     shell.excCmd(line)
             shell.cmdloop()
+        elif sys.argv[1]=='configure':
+            os.system('mkdir minickt')
+            os.system('mkdir minickt/bench')
+            os.system('mkdir minickt/bin')
+            os.system('mkdir minickt/script')
+            print 'Ready to work!'
+            print 'Please put SAT solver "lingeling"(it should be match your OS)to directory "bin".'
     else:
         shell.cmdloop()
