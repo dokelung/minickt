@@ -53,7 +53,7 @@ You should install following python packages:
 
 Some commands of minickt is based on external SAT solver, and lingeling is default.<br />
 You can get it from [lingeling](http://fmv.jku.at/lingeling/) and compiled to fit your os version.<br >
-(The one in directory `bin` is possible not fit yours OS.)
+(The one in directory `bin` is possible not fit your OS.)
 
 Other SAT solvers are also avalible, just put the excution file to directory `bin`. 
 
