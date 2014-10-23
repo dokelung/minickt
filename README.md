@@ -458,7 +458,7 @@ Just put wanted commands in a scirpt file then use cmd `loadsc` to load script:
 or you can run the script in your os shell with `-f` option:
 
 ```sh
-$ ./minic -f ./script/simulation.sc
+$ minic -f ./script/simulation.sc
 ```
 
 There are several sample circuits and scripts in the directory `bench` and `script` respectively.
@@ -493,7 +493,7 @@ exit
 First, we read `sample2.v` by using primitive parser.
 `sg all -v` let us know all names of gates with their values.
 Then we set PI a,b,c and d with value 1,1,1,0 respectively.
-`eval` does the simulaiton and we sg again for chekcing the value of PO "out".
+`eval` does the simulaiton and we sg again for checking the value of PO "out".
 
 ---
 
