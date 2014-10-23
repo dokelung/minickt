@@ -5,7 +5,7 @@ setup(
 	packages = ['minickt', 'cktParser', 'cktWriter'],
 	scripts = ['minic'],
 	install_requires=['matplotlib','networkx'],
-	version = '0.7.1',
+	version = '0.8',
 	description = 'Analyzer and simulator of logic circuit',
 	author = 'dokelung',
 	author_email = 'dokelung@gmail.com',
