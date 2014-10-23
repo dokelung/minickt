@@ -393,6 +393,7 @@ If you want to do SEC for two circuits in circuit manager of minickt, you have t
 
 ```
 [ miniCkt ] ls -c
+there are 1 circuits now
 [0] ckt1 <--- current
 [1] ckt2
 [ miniCkt ] sg po
@@ -410,6 +411,40 @@ If you want to do SEC for two cones of urrent circuit, just give the names of co
 ```
 
 #### Functional equivalence checking
+
+We use miter to do FEC in minickt and now just supports "single output ckt".
+
+So make sure two things:
+
+1. The specified ckts should be single output ckt.
+2. Their inputs can be mapped.(It means the corresponding inputs should have same name.)
+
+You can use `fec` to check functional equivalence of two circuits in circuit manager:
+
+```
+[ miniCkt ] >> ls -c
+there are 2 circuits now
+[0] ckt1 <--- current
+[1] ckt2
+[ miniCkt ] >> fec 0 1
+```
+
+Above operation will check the functional equivalence of ckt1 and ckt2.
+
+We use SAT solver(default by lingeling solver and TST encoding) to get the satisfiability of miter.<br >
+If the result is SAT: it means they are not FEC.<br >
+If the result is UNSAT: it means they are FEC.
+
+
+Also, the miter of them will be created:
+
+```
+[ miniCkt ] >> ls -c
+there are 3 circuits now
+[0] c1
+[1] c2
+[2] miter <--- current
+```
 
 ---
 
