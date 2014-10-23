@@ -1,7 +1,7 @@
 minickt
 =======
 
-Analyzer and simulator of logic circuit (Version-0.7.1)
+Analyzer and simulator of logic circuit (Version-0.8)
 
 * [Environments](#environments)
  * [Python](#python)
