@@ -25,9 +25,11 @@ Analyzer and simulator of logic circuit (Version-0.7.1)
   * [Circuit switching](#circuit-switching)
   * [Remove circuit](#remove-circuit)
   * [Get cone circuit](#get-cone-circuit)
-* [Structural equivalence checking](#structural-equivalence-checking)
-  * [SEC for two circuits](#sec-for-two-circuits)
-  * [SEC for cones of current circuit](#sec-for-cones-of-current-circuit)
+* [Equivalence checking](#equivalence-checking)
+ * [Structural equivalence checking](#structural-equivalence-checking)
+   * [SEC for two circuits](#sec-for-two-circuits)
+   * [SEC for cones of current circuit](#sec-for-cones-of-current-circuit)
+ * [Functional equivalence checking](#functional-equivalence-checking)
 * [Circuit SAT](#circuit-sat)
 * [Shell commands](#shell-commands)
 * [minickt script](#minickt-script)
@@ -378,12 +380,14 @@ or use a combinational command `gen_cone_ckt` which is equal to the commands abo
 
 ---
 
-### Structural equivalence checking
+### Equivalence checking
+
+#### Structural equivalence checking
 
 There are two ways to check the equivalence of two single-outpu circuits.<br />
 Command `sec` helps us doing these.
 
-#### SEC for two circuits
+##### SEC for two circuits
 
 If you want to do SEC for two circuits in circuit manager of minickt, you have to use `CKT_ID` to specify circuits:
 
@@ -397,13 +401,15 @@ If you want to do SEC for two circuits in circuit manager of minickt, you have t
 
 It will compare ckt1's cone(its root is gate "out") and ckt2's cone(its root is gate "out").
 
-#### SEC for cones of current circuit
+##### SEC for cones of current circuit
 
 If you want to do SEC for two cones of urrent circuit, just give the names of cone roots:
 
 ```
 [ minickt ] >> sec gate1 gate2
 ```
+
+#### Functional equivalence checking
 
 ---
 
