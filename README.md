@@ -52,7 +52,8 @@ You should install following python packages:
 #### SAT solver
 
 Some commands of minickt is based on external SAT solver, and lingeling is default.<br />
-You can get it from [lingeling](http://fmv.jku.at/lingeling/) and compiled to fit your os version.
+You can get it from [lingeling](http://fmv.jku.at/lingeling/) and compiled to fit your os version.<br >
+(The one in directory `bin` is possible not fit yours OS.)
 
 Other SAT solvers are also avalible, just put the excution file to directory `bin`. 
 
@@ -84,6 +85,8 @@ Here is the pypi page of minickt:
 
 * [Pypi page of minickt](https://pypi.python.org/pypi/minickt/)
 
+Note that if you install minickt from pip, you will not get the scripts and benches here.
+
 ---
 
 ### Run minickt
@@ -94,7 +97,18 @@ If you do not install the packages and script, just `cd` to the top directory:
 $ ./minic
 ```
 
-If you have already installed it, just excute it anywhere:
+If you have already installed it, you should do configuring first:
+
+```sh
+$ minic configure
+```
+
+you will find that a directory named `minickt` including 3 sub-directories with nothing: `bin`, `bench` and `script`.
+
+* Remember to put your lingeling solver to dir `bin`.
+* The needed benchmarks and scripts can be downloaded here.
+
+Then you just excute it anywhere:
 
 ```sh
 $ minic
@@ -496,10 +510,10 @@ Just put wanted commands in a scirpt file then use cmd `loadsc` to load script:
 [ miniCkt ] >> loadsc ./script/simulation.sc
 ```
 
-or you can run the script in your os shell with `-f` option:
+or you can run the script in your os shell with `script` option:
 
 ```sh
-$ minic -f ./script/simulation.sc
+$ minic script ./script/simulation.sc
 ```
 
 There are several sample circuits and scripts in the directory `bench` and `script` respectively.
