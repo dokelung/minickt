@@ -10,7 +10,7 @@ setup(
 	author = 'dokelung',
 	author_email = 'dokelung@gmail.com',
 	url = 'https://github.com/dokelung/minickt',
-	download_url = 'https://github.com/dokelung/minickt/tarball/v0.7.1',
+	download_url = 'https://github.com/dokelung/minickt/tarball/v0.8',
 	keywords = ['circuit','eda','verification','logic','gate'],
 	classifiers = [],
 )
