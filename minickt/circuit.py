@@ -225,6 +225,14 @@ class Circuit:
     def setName(self,name):
         self.circuit_name = name
 
+    def idTranslate(self,num):
+        for gate in self.getGatesOnce():
+            gate.idTranslate(num)
+
+    def gateNamesTranslate(self,append_str):
+        for gate in self.getGatesOnce():
+            gate.nameTranslate(append_str)
+
     # getter(gate num)
     def getPiNum(self):
         return self.num_pi
@@ -370,6 +378,9 @@ class Circuit:
     # getter(gate/id)
     def getGates(self):
         return self.gates
+
+    def getGatesOnce(self):
+        return self.getPIGates() + self.gates[self.po_end_index:]
 
     def getPIGates(self):
         return [gate for gate in self.gates[:self.po_end_index] if isinstance(gate,PIGate)]

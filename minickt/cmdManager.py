@@ -11,12 +11,10 @@ class OriShell(cmd.Cmd,object):
     intro = \
 """
 ================================
-      miniCkt beta 0.7.1
+           miniCkt
 
-    * update: 2014/10/16
-    * author: dokelung
-
-    # use "?" or "cmd"         
+     * author: dokelung
+     # use "?" or "cmd"         
 ================================
 """
     prompt = '[ miniCkt ] >> '
@@ -195,6 +193,94 @@ class OriShell(cmd.Cmd,object):
                 print 'structural eq'
             else:
                 print 'structural uneq'
+        except:
+            print 'error: checking error'
+
+    def do_fec(self,arg):
+        """
+        check functional equivalence
+        SYNOPSIS: sec <ckt id> <ckt id>
+        DESCRIPTION:
+            1.  fec checks functional equivalence with miter
+                and now just supports "single output" curcuit.
+                So make sure two things:
+                    1. The specified ckts should be single output ckt.
+                    2. Their inputs can be mapped.
+                       (It means the corresponding inputs should have same name.)
+            2.  If the miter's satisfiability is SAT, these two ckts are not 
+                functional equivalence, otherwise the are functional equivalence.
+            3.  It use lingeling SAT solver and TST encoding to solve
+                miter's circuit SAT.
+            4.  user can use "ls -c" or "ls_ckt" to get "ckt id"
+        """
+        try:
+            args = self.parseArg(arg)
+            ckt1_id = int(args[0])
+            ckt2_id = int(args[1])
+            ckt1 = self.cktmgr.getCkt(ckt1_id)
+            ckt2 = self.cktmgr.getCkt(ckt2_id)
+
+            for g in ckt1.getGatesOnce(): 
+                if g not in ckt1.getPIGates():
+                    g.nameTranslate('_m1')
+            for g in ckt2.getGatesOnce(): 
+                if g not in ckt2.getPIGates():
+                    g.nameTranslate('_m2')
+
+            from cktWriter import primitive
+            primitive.writeOutCkt(ckt1,'c1')
+            primitive.writeOutCkt(ckt2,'c2')
+
+            inputs = []
+            outputs = []
+            wires = []
+            gates = []
+
+            for file_name in ['c1','c2']:
+                with open(file_name,'r') as reader:
+                    for line in reader:
+                        line = line.strip()
+                        if line[0:2]=='//':
+                            continue
+                        else:
+                            items = line.split()
+                            keyword = items[0]
+                            if keyword in ['module','endmodule']:
+                                continue
+                            if keyword == 'input':
+                                inputs.append(items[1].strip(';'))
+                            elif keyword == 'output':
+                                outputs.append(items[1].strip(';'))
+                            elif keyword == 'wire':
+                                wires.append(items[1].strip(';'))
+                            else:
+                                gates.append(line)
+
+            inputs = set(inputs)
+
+            io_name = ['out'] + list(inputs)
+
+            with open('miter','w') as writer:
+                print >>writer,'//benchmark writen by minickt'
+                print >>writer,'module {0} ({1});'.format('miter',','.join(io_name))
+                for i in inputs:
+                    print >>writer,'input {0};'.format(i)
+                print >>writer, 'output out;'
+                for w in wires+outputs:
+                    print >>writer,'wire {0};'.format(w)
+                for g in gates:
+                    print >>writer, g
+                print >>writer,'xor (out,{0},{1});'.format(outputs[0],outputs[1])
+                print >>writer,'endmodule'
+
+            os.system('rm c1')
+            os.system('rm c2')
+
+            self.excCmd('read miter by primitive')
+            self.excCmd('chname miter')
+            self.excCmd('!rm miter')
+            self.excCmd('sat by lingeling -f with TST')
+
         except:
             print 'error: checking error'
 

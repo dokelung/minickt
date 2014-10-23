@@ -236,6 +236,12 @@ class Gate(object):
             #print self,'has single fanout'
             pass
         return added_clas, constraint_type
+
+    def idTranslate(self,num):
+        self.id += num
+
+    def nameTranslate(self,append_str):
+        self.name += append_str
         
 class AndGate(Gate):
 
