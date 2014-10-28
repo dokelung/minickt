@@ -17,7 +17,8 @@ class OriShell(cmd.Cmd,object):
      # use "?" or "cmd"         
 ================================
 """
-    prompt = '[ miniCkt ] >> '
+    prompt = '\033[94m[ miniCkt ] >> \033[0m'
+    #prompt = '[ miniCkt ] >> '
 
     def __init__(self):
         super(Shell, self).__init__()
