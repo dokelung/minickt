@@ -114,7 +114,7 @@ Then you just excute it anywhere:
 $ minic
 ```
 
-and you can run any avalible command by enter it after the prompt `[ miniCkt ] >> `:
+and you can run any avalible command by entering it after the prompt `[ miniCkt ] >> `:
 
 ```
 [ miniCkt ] >> exit
