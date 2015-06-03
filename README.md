@@ -83,7 +83,7 @@ $ pip install minickt --upgrade
 
 Here is the pypi page of minickt:
 
-* [Pypi page of minickt](https://pypi.python.org/pypi/minickt/)
+* [PyPI page of minickt](https://pypi.python.org/pypi/minickt/)
 
 Note that if you install minickt from pip, you will not get the scripts and benches here.
 
