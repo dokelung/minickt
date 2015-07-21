@@ -1,5 +1,7 @@
 minickt
 =======
+![](https://img.shields.io/pypi/v/minickt.svg)
+![](https://img.shields.io/pypi/dm/minickt.svg)
 
 Analyzer and simulator of logic circuit (Version-0.8)
 
