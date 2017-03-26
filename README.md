@@ -4,8 +4,8 @@ minickt
 ![](https://img.shields.io/pypi/dm/minickt.svg)
 
 * [Environments](#environments)
- * [Python](#python)
- * [SAT solver](#sat-solver)
+  * [Python](#python)
+  * [SAT solver](#sat-solver)
 * [How to get minickt](#how-to-get-minickt)
 * [Run minickt](#run-minickt)
 * [List commmands and get help](#list-commands-and-get-help)
@@ -21,7 +21,7 @@ minickt
   * [Set gate value](#set-gate-value)
   * [Simulation](#simulation)
 * [Circuit Reasoning](#circuit-reasoning)
-* [Circuit Manager] (#circuit-manager)
+* [Circuit Manager](#circuit-manager)
   * [Circuit switching](#circuit-switching)
   * [Remove circuit](#remove-circuit)
   * [Get cone circuit](#get-cone-circuit)
@@ -33,8 +33,8 @@ minickt
 * [Circuit SAT](#circuit-sat)
 * [Shell commands](#shell-commands)
 * [minickt script](#minickt-script)
- * [simple_io.sc with sample.v](#simple_iosc-with-samplev)
- * [simulation.sc with sample2.v](#simulationsc-with-sample2v)
+  * [simple_io.sc with sample.v](#simple_iosc-with-samplev)
+  * [simulation.sc with sample2.v](#simulationsc-with-sample2v)
 
 ===
 
