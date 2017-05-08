@@ -2,7 +2,6 @@ minickt
 =======
 
 ![](https://img.shields.io/pypi/v/minickt.svg)
-![](https://img.shields.io/pypi/dm/minickt.svg)
 
 * [Environments](#environments)
   * [Python](#python)
